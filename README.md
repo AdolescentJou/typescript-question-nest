@@ -4,6 +4,12 @@
 
 ### 项目结构
 
-- issus 相关问题，以作者命名
+- issus 相关问题
 - practice 项目中遇到的实际问题
 - summary 相关知识点总结
+- interview 面试题总结
+
+### 关于我
+
+- 掘金地址：https://juejin.cn/user/632923402807534
+- 腾讯云地址：https://cloud.tencent.com/developer/user/9953712
