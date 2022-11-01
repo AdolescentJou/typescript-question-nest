@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+
+	<style>
+		body {
+			width: 100%;
+			height: 100%;
+		}
+
+		.container {
+			display: flex;
+
+			margin-left: 20%;
+		}
+
+		.box {
+			width: 400px;
+			height: 300px;
+			transform-origin: 0 0;
+			margin-top: 120px;
+			margin-left: 40px;
+			/* animation: identifier 4s 1s ease infinite; */
+			line-height: 2;
+		}
+
+		span,
+		p {
+			background: linear-gradient(90deg, transparent 0, orange);
+			background-size: 100% 100%;
+			background-repeat: no-repeat;
+			background-position: 100% 100%;
+		}
+
+		h2 {
+			color: aqua;
+		}
+
+		@keyframes identifier {
+
+			0%,
+			100% {
+				width: 500px;
+			}
+
+			50% {
+				width: 200px;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<div class="box">
+			<h2>P标签</h2>
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum impedit dignissimos modi est
+				quisquam
+				corporis
+				voluptate magnam deserunt! .</p>
+		</div>
+
+		<div class="box">
+			<h2>span标签</h2>
+			<span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum impedit dignissimos modi
+				est
+				quisquam
+				corporis
+				voluptate magnam deserunt! .</span>
+		</div>
+	</div>
+</body>
+
+</html>

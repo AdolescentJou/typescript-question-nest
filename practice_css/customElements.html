@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<my-card id="my-card">
+		<div slot="slot">这是一段具名插槽</div>
+		<div>这是不具名插槽</div>
+	</my-card>
+	<script>
+		document.getElementById("my-card").addEventListener("play", (e) => {
+			console.log("触发自定义事件");
+			console.log(e);
+		})
+		// 声明自定义标签构造函数类
+		class MyCard extends HTMLElement {
+			constructor() {
+				super();
+				const shadowRoot = this.attachShadow({ mode: 'open' });
+				shadowRoot.innerHTML = `
+				<style>
+				:host{
+					
+				}
+				#root{
+						width:300px;
+						height:300px;
+						background-color:#af9d1d;
+					}
+				</style>
+				<div id="root">
+				<slot></slot>	
+				<slot name="slot"></slot>
+				</div>
+				`;
+				console.log('Dom初始化');
+			}
+			get name() {
+				return this.getAttribute('name');
+			}
+			set name(value) {
+				if (value) {
+					this.setAttribute('name', value);
+				} else {
+					this.removeAttribute('value');
+				}
+			}
+			connectedCallback() {
+				this.btn = this.shadowRoot.getElementById('root');
+				this.btn.addEventListener('click', (e) => {
+					console.log('完成单击事件');
+					console.log(e);
+					//发放自定义event
+					this.dispatchEvent(new CustomEvent('play', {
+						detail: {
+							slow: this.name,
+						},
+					}));
+				});
+				console.log('dom挂载完成');
+				console.log('打印传入值', this.name);
+			}
+			disconnectedCallback() {
+				this.btn.removeEventListener('click');
+				console.log('dom卸载');
+			}
+		}
+
+		// 注册自定义标签
+		customElements.define('my-card', MyCard);
+	</script>
+</body>
+
+</html>
