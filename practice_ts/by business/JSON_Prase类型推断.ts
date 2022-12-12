@@ -18,7 +18,7 @@ const role: Person = {
   age: 20,
 };
 
-const str: json<Person> = JSON.stringify(role);
-const x = JSON.parse(str);
 
-const y = JSON.parse('111') as unknown as number;
+
+
+const x = JSON.parse(JSON.stringify(role));
